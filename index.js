@@ -1,4 +1,5 @@
 const express = require('express')
+require('express-async-errors')
 const app = express()
 
 const { PORT } = require('./utils/config')
@@ -9,6 +10,13 @@ const blogsRouter = require('./controllers/blogs')
 app.use(express.json())
 
 app.use('/api/blogs', blogsRouter)
+
+const errorHandler = (error, req, res, next) => {
+  console.error(error.message)
+  return res.status(500).send({error: error.message})
+}
+
+app.use(errorHandler)
 
 const start = async () => {
   await connectToDatabase()
