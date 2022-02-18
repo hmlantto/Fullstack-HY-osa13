@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
   const blogs = await Blog.findAll({
     include: {
       model: User,
-      attributes: ['name']
+      attributes: ['username', 'name']
     },
     where,
     order: [
