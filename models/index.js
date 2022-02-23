@@ -1,6 +1,6 @@
 const Blog = require('./blog')
-const ReadingList = require('./readingList')
 const User = require('./user')
+const ReadingList = require('./reading_list')
 
 User.hasMany(Blog)
 Blog.belongsTo(User)

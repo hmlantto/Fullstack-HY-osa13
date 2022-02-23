@@ -18,7 +18,7 @@ ReadingList.init({
   blogId: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    references: { model: 'blog', key: 'id' },
+    references: { model: 'blogs', key: 'id' },
   },
   read: {
     type: DataTypes.BOOLEAN,
@@ -28,7 +28,8 @@ ReadingList.init({
   sequelize,
   underscored: true,
   timestamps: false,
-  modelName: 'reading_list'
+  modelName: 'reading_list',
+  freezeTableName: true
 })
 
 module.exports = ReadingList
